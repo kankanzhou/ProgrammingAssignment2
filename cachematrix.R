@@ -1,5 +1,10 @@
+## Created By Kankan Zhou
+## On 9 Feb 2015
+
 
 makeCacheMatrix <- function(x = numeric()) { 
+        ##  This function creates a special "matrix" object that can cache its inverse.
+
         m <- NULL
         set <- function(y) {
                 x <<- y
@@ -15,6 +20,10 @@ makeCacheMatrix <- function(x = numeric()) {
 
 
 cacheSolve <- function(x, ...) {
+        ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
+		##If the inverse has already been calculated (and the matrix has not changed), 
+		##then the cachesolve will retrieve the inverse from the cache.
+        
         m <- x$getsolve()
         if(!is.null(m)) {
                 message("getting cached data")
